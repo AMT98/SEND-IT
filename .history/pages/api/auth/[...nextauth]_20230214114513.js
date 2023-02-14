@@ -13,4 +13,13 @@ export const authOptions = {
   ],
 };
 
-export default NextAuth(authOptions);
+export default NextAuth({
+  adapter: PrismaAdapter(prisma),
+  secret: process.env.A
+  providers: [
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    }),
+  ],
+});

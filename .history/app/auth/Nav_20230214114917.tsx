@@ -5,13 +5,15 @@ import { authOptions } from "../../pages/api/auth/[...nextauth]";
 
 const Nav = async () => {
   const session = await getServerSession(authOptions);
-  console.log(session);
+  
   return (
     <nav className="flex justify-between items-center py-8">
       <Link href={"/"}>
         <h1 className="font-bold text-xl">Send it.</h1>
       </Link>
-      <ul className="flex items-center gap-6">{!session?.user && <Login />}</ul>
+      <ul className="flex items-center gap-6">
+        <Login />
+      </ul>
     </nav>
   );
 };
