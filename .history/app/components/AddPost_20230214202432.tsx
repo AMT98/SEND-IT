@@ -7,9 +7,7 @@ export default function CreatePost() {
   const [title, setTitle] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
 
-  const { mutate } = useMutation(
-    async (title) => await axios.post("/api/posts/addPost", {})
-  );
+  const { mutate } = useMutation();
   return (
     <form className="bg-white my-8 p-8 rounded-md">
       <div className="flex flex-col my-4">
